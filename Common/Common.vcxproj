@@ -11,20 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}</ProjectGuid>
-    <RootNamespace>Omnimulator</RootNamespace>
+    <ProjectGuid>{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}</ProjectGuid>
+    <RootNamespace>Common</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>MainWindow</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -42,13 +41,11 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\CImg\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -56,9 +53,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
-    <PostBuildEvent>
-      <Command>copy "$(ProjectDir)..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -72,24 +66,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PostBuildEvent>
-      <Command>copy "$(ProjectDir)..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\ScreenBuffer.cpp" />
+    <ClInclude Include="Include\Omni\Common\Common.h" />
+    <ClInclude Include="Include\Omni\Common\Logging.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.vcxproj">
-      <Project>{f184ec07-afb3-44cc-aec0-0725df9508ba}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\RomLoader\RomLoader.vcxproj">
-      <Project>{d5774bae-5cb1-43b3-ab23-8cabeae6654d}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Include\Omni\Win\ScreenBuffer.h" />
+    <ClCompile Include="Source\Logging.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

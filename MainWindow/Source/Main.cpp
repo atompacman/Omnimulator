@@ -1,57 +1,70 @@
+#include <memory>
 #include <string>
 
 #include <freeglut/freeglut.h>
 
-const std::string WIN_TITLE  = "Omnimulator";
-const uint16_t    WIN_POS_X  = 200;
-const uint16_t    WIN_POS_Y  = 200;
-const uint16_t    WIN_WIDTH  = 256;
-const uint16_t    WIN_HEIGHT = 224;
+#include <Omni/Common/Common.h>
+#include <Omni/Loader/NESROMFile.h>
+#include <Omni/Win/ScreenBuffer.h>
 
-GLubyte g_TexData[WIN_HEIGHT][WIN_WIDTH][3];;
+namespace Omni { namespace Win {
 
-void displayHandler()
+sptr<ScreenBuffer> g_Buffer;
+
+void handleDisplay()
 {
-    glDrawPixels(WIN_WIDTH, WIN_HEIGHT, GL_RGB, GL_UNSIGNED_BYTE, g_TexData);
+    glDrawPixels(g_Buffer->getDim().x,    // Buffer width
+                 g_Buffer->getDim().y,    // Buffer height
+                 GL_RGB,                  // 3 channels
+                 GL_UNSIGNED_BYTE,        // Data format
+                 g_Buffer->getDataPtr()); // Data ptr
     glutSwapBuffers();
 }
 
-void idleHandler()
+void handleIdle()
 {
-    uint16_t randX = static_cast<uint16_t>(static_cast<double>(rand()) / 
-                                           static_cast<double>(RAND_MAX) * WIN_WIDTH);
-    uint16_t randY = static_cast<uint16_t>(static_cast<double>(rand()) / 
-                                           static_cast<double>(RAND_MAX) * WIN_HEIGHT);
-    g_TexData[randY][randX][0] = 255;
+    // TODO remove this nonsense
+    WinCoord coord;
+    coord.x = static_cast<uint16_t>(static_cast<double>(rand()) / 
+                                    static_cast<double>(RAND_MAX) * g_Buffer->getDim().x);
+    coord.y = static_cast<uint16_t>(static_cast<double>(rand()) / 
+                                    static_cast<double>(RAND_MAX) * g_Buffer->getDim().y);
+    g_Buffer->setPixelValue(coord, ColorChannel::RED, 255);
+
     glutPostRedisplay();
 }
 
+}}
+
 int main(int i_Argc, char ** i_Argv)
 {
+    // TODO: move that in a config file or in cmd args
+    Omni::Win::WinDim   const WIN_DIM    (256, 224);
+    Omni::Win::WinCoord const WIN_POS    (200, 200);
+    std::string         const WIN_TITLE  ("Omnimulator");
+    std::string         const LOG_CONFIG ("..\\Config\\easyloggingpp.config");
+    std::string         const TEST_ROM   ("..\\Resource\\Test\\SMB3.nes");
+
+    // Init logging library
+    Omni::Common::initLogging(LOG_CONFIG);
+    LOG(INFO) << "Starting Omnimulator";
+
     // Init freeglut library
     glutInit(&i_Argc, i_Argv);
 
     // Init window
-    glutInitWindowPosition(WIN_POS_X, WIN_POS_Y);
-    glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
-    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-    glutCreateWindow(WIN_TITLE.c_str());
-    glutDisplayFunc(displayHandler);
-    glutIdleFunc(idleHandler);
+    glutInitWindowSize     (WIN_DIM.x, WIN_DIM.y);
+    glutInitWindowPosition (WIN_POS.x, WIN_POS.y);
+    glutInitDisplayMode    (GLUT_RGB | GLUT_DOUBLE);
+    glutCreateWindow       (WIN_TITLE.c_str());
+    glutDisplayFunc        (Omni::Win::handleDisplay);
+    glutIdleFunc           (Omni::Win::handleIdle);
 
-    // Create bitmap texture   
-    for (uint16_t y = 0; y < WIN_HEIGHT; ++y)
-    {
-        for (uint16_t x = 0; x < WIN_WIDTH; ++x)
-        {
-            GLubyte * pxl = g_TexData[y][x];
-            pxl[0] = 0;
-            pxl[1] = static_cast<GLubyte>(static_cast<double>(x) / 
-                                          static_cast<double>(WIN_WIDTH) * 255.0);
-            pxl[2] = static_cast<GLubyte>(static_cast<double>(y) / 
-                                          static_cast<double>(WIN_HEIGHT) * 255.0);
-      }
-    }
+    // Create screen buffer
+    Omni::Win::g_Buffer = std::make_shared<Omni::Win::ScreenBuffer>(WIN_DIM);
+
+    // Open test .nes file
+    Omni::Loader::NESROMFile rom(TEST_ROM);
 
     // Start main loop
     glutMainLoop();
