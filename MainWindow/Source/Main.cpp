@@ -3,13 +3,15 @@
 
 #include <freeglut/freeglut.h>
 
-#include <Omni/Common/Common.h>
 #include <Omni/Loader/NESROMFile.h>
-#include <Omni/Win/ScreenBuffer.h>
+#include <Omni/PPU/ScreenBuffer.h>
+#include <Omni/PPU/Test.h>
 
 namespace Omni { namespace Win {
 
-sptr<ScreenBuffer> g_Buffer;
+sptr<PPU::ScreenBuffer>  g_Buffer;
+sptr<Loader::NESROMFile> g_ROMFile;
+uint32_t                 g_CurrSprite = 0;
 
 void handleDisplay()
 {
@@ -23,15 +25,14 @@ void handleDisplay()
 
 void handleIdle()
 {
-    // TODO remove this nonsense
-    WinCoord coord;
-    coord.x = static_cast<uint16_t>(static_cast<double>(rand()) / 
-                                    static_cast<double>(RAND_MAX) * g_Buffer->getDim().x);
-    coord.y = static_cast<uint16_t>(static_cast<double>(rand()) / 
-                                    static_cast<double>(RAND_MAX) * g_Buffer->getDim().y);
-    g_Buffer->setPixelValue(coord, ColorChannel::RED, 255);
+    static uint32_t const MAX_NUM_SPRITES = Common::CHR_BANK_SIZE / 16U;
 
-    glutPostRedisplay();
+    if (g_CurrSprite < MAX_NUM_SPRITES)
+    {
+        drawSprite(g_CurrSprite, *g_Buffer, g_ROMFile->getCHRBanks()[0]);
+        glutPostRedisplay();
+        ++g_CurrSprite;
+    }
 }
 
 }}
@@ -39,8 +40,8 @@ void handleIdle()
 int main(int i_Argc, char ** i_Argv)
 {
     // TODO: move that in a config file or in cmd args
-    Omni::Win::WinDim   const WIN_DIM    (256, 224);
-    Omni::Win::WinCoord const WIN_POS    (200, 200);
+    Omni::PPU::WinDim   const WIN_DIM    (256, 224);
+    Omni::PPU::WinCoord const WIN_POS    (200, 200);
     std::string         const WIN_TITLE  ("Omnimulator");
     std::string         const LOG_CONFIG ("..\\Config\\easyloggingpp.config");
     std::string         const TEST_ROM   ("..\\Resource\\Test\\SMB3.nes");
@@ -61,10 +62,10 @@ int main(int i_Argc, char ** i_Argv)
     glutIdleFunc           (Omni::Win::handleIdle);
 
     // Create screen buffer
-    Omni::Win::g_Buffer = std::make_shared<Omni::Win::ScreenBuffer>(WIN_DIM);
+    Omni::Win::g_Buffer = std::make_shared<Omni::PPU::ScreenBuffer>(WIN_DIM);
 
     // Open test .nes file
-    Omni::Loader::NESROMFile rom(TEST_ROM);
+    Omni::Win::g_ROMFile = std::make_shared<Omni::Loader::NESROMFile>(TEST_ROM);
 
     // Start main loop
     glutMainLoop();

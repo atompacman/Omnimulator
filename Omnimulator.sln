@@ -9,24 +9,40 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RomLoader", "RomLoader\RomL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcxproj", "{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PPU", "PPU\PPU.vcxproj", "{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Debug|x64.ActiveCfg = Debug|x64
 		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Debug|x64.Build.0 = Debug|x64
+		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Debug|x86.ActiveCfg = Debug|x64
 		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Release|x64.ActiveCfg = Release|x64
 		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Release|x64.Build.0 = Release|x64
+		{7C4C80C1-20B7-40B4-951B-70F8DBDBFFDD}.Release|x86.ActiveCfg = Release|x64
 		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Debug|x64.ActiveCfg = Debug|x64
 		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Debug|x64.Build.0 = Debug|x64
+		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Debug|x86.ActiveCfg = Debug|x64
 		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Release|x64.ActiveCfg = Release|x64
 		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Release|x64.Build.0 = Release|x64
+		{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}.Release|x86.ActiveCfg = Release|x64
 		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Debug|x64.ActiveCfg = Debug|x64
 		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Debug|x64.Build.0 = Debug|x64
+		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Debug|x86.ActiveCfg = Debug|x64
 		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Release|x64.ActiveCfg = Release|x64
 		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Release|x64.Build.0 = Release|x64
+		{F184EC07-AFB3-44CC-AEC0-0725DF9508BA}.Release|x86.ActiveCfg = Release|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Debug|x64.ActiveCfg = Debug|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Debug|x64.Build.0 = Debug|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Debug|x86.ActiveCfg = Debug|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x64.ActiveCfg = Release|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x64.Build.0 = Release|x64
+		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

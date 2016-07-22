@@ -68,7 +68,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\Common\Common.h" />
+    <ClInclude Include="Include\Omni\Common\Basic.h" />
+    <ClInclude Include="Include\Omni\Common\DataTypes.h" />
+    <ClInclude Include="Include\Omni\Common\Graphic.h" />
     <ClInclude Include="Include\Omni\Common\Logging.h" />
   </ItemGroup>
   <ItemGroup>

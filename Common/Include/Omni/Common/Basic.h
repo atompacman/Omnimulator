@@ -1,5 +1,5 @@
-#ifndef OMNIMULATOR_COMMON_COMMON
-#define OMNIMULATOR_COMMON_COMMON
+#ifndef OMNIMULATOR_COMMON_BASIC
+#define OMNIMULATOR_COMMON_BASIC
 
 #include <memory>
 
@@ -18,4 +18,9 @@ using uptr = std::unique_ptr<T>;
 template <typename T>
 using uptrc = std::unique_ptr<T const>;
 
-#endif // OMNIMULATOR_COMMON_COMMON
+inline uint8_t buildByteFromMSBandLSB(uint8_t i_MSB, uint8_t i_LSB)
+{
+    return (i_MSB << 4) + i_LSB;
+}
+
+#endif // OMNIMULATOR_COMMON_BASIC

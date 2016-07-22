@@ -1,5 +1,3 @@
-#include <string>
-
 #include <Omni/Common/Logging.h>
 
 // Macro to init easylogging++ library

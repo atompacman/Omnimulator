@@ -11,22 +11,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\Common\Logging.h">
+    <ClInclude Include="Include\Omni\PPU\ScreenBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Omni\Common\DataTypes.h">
+    <ClInclude Include="Include\Omni\PPU\Test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Omni\Common\Graphic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Omni\Common\Basic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\Logging.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
