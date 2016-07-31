@@ -1,0 +1,14 @@
+{
+    "Name": "CPU Memory Map",
+    "Regions": [
+        { "Name": "Internal - RAM - Zero Page"       , "PhysicalSize":   256 },
+        { "Name": "Internal - RAM - Stack"           , "PhysicalSize":   256 },
+        { "Name": "Internal - RAM - Other"           , "PhysicalSize":  1536, "TotalSize": 7680 },
+        { "Name": "Internal - PPU Registers"         , "PhysicalSize":     8, "TotalSize": 8192 },
+        { "Name": "Internal - APU + I/O Registers"   , "PhysicalSize":    32 },
+        { "Name": "Cartridge - Expansion ROM"        , "PhysicalSize":  8160 },
+        { "Name": "Cartridge - SRAM"                 , "PhysicalSize":  8192 },
+        { "Name": "Cartridge - PRG ROM - Lower Bank" , "PhysicalSize": 16384 },
+        { "Name": "Cartridge - PRG ROM - Upper Bank" , "PhysicalSize": 16384 }
+    ]
+}

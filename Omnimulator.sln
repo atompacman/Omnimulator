@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "Common\Common.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PPU", "PPU\PPU.vcxproj", "{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPU", "CPU\CPU.vcxproj", "{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -43,6 +45,12 @@ Global
 		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x64.ActiveCfg = Release|x64
 		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x64.Build.0 = Release|x64
 		{616BA94E-BCD3-4F1D-A364-ED32DFE48F92}.Release|x86.ActiveCfg = Release|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Debug|x64.ActiveCfg = Debug|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Debug|x64.Build.0 = Debug|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Debug|x86.ActiveCfg = Debug|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Release|x64.ActiveCfg = Release|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Release|x64.Build.0 = Release|x64
+		{CF850A57-7EEB-489B-8BD7-F54A09CD6F0F}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
