@@ -1,8 +1,8 @@
 #include <fstream>
 
-#include <Omni/Loader/NESROMFile.h>
+#include <FXG/Omni/Loader/NESROMFile.h>
 
-namespace Omni { namespace Loader {
+namespace FXG { namespace Omni { namespace Loader {
 
 struct HeaderContent
 {
@@ -45,6 +45,7 @@ NESROMFile::NESROMFile(std::string const & i_FilePath) :
   , m_Trainer  (nullptr)
 
     // Other info
+  , m_Title                   ("Unknown")
   , m_NumPGRRAMBanks          (0)
   , m_HasBatteryBackedRAMBank (false)
   , m_MapperNumber            (0)
@@ -101,8 +102,13 @@ NESROMFile::NESROMFile(std::string const & i_FilePath) :
         reqSize += Common::TRAINER_SIZE;
     }
 
-    // Check if file is of correct size
-    if (reqSize != size)
+    // Check if there can be a title section at the end
+    auto it = POSSIBLE_END_TITLE_SIZES.find(size - reqSize);
+    uint64_t titleSize = it == POSSIBLE_END_TITLE_SIZES.cend() ? 0 : *it;
+    reqSize += titleSize;
+
+    // Check if there is unknown data in the file
+    if (size != reqSize)
     {
         LOG(FATAL) << "Header implies file size of " << reqSize << " bytes but actually is "<< size;
     }
@@ -125,10 +131,16 @@ NESROMFile::NESROMFile(std::string const & i_FilePath) :
     }
 
     // Save other info
+    if (titleSize > 0)
+    {
+        std::vector<uint8_t> buf(titleSize);
+        file.read(buf.data(), titleSize);
+        m_Title = std::string(reinterpret_cast<char *>(buf.data()));
+    }
     m_NumPGRRAMBanks          = max(header.m_NumRAMBanks, 1);
     m_HasBatteryBackedRAMBank = header.m_CtrlByte1.m_HasBatteryBackedRam;
-    m_MapperNumber            = buildByteFromMSBandLSB(header.m_CtrlByte2.m_MapperNumberMSB, 
-                                                       header.m_CtrlByte1.m_MapperNumberLSB);
+    m_MapperNumber            = Common::buildByteFromMSBandLSB(header.m_CtrlByte2.m_MapperNumberMSB, 
+                                                               header.m_CtrlByte1.m_MapperNumberLSB);
     m_Mirroring               = header.m_CtrlByte1.m_UsesFourScreenMirroring 
                               ? Common::Mirroring::FOUR_SCREEN 
                               : header.m_CtrlByte1.m_IsHorizMirroring 
@@ -136,4 +148,4 @@ NESROMFile::NESROMFile(std::string const & i_FilePath) :
                               : Common::Mirroring::HORIZONTAL;
 }
 
-}}
+}}}

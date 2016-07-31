@@ -3,11 +3,11 @@
 
 #include <freeglut/freeglut.h>
 
-#include <Omni/Loader/NESROMFile.h>
-#include <Omni/PPU/ScreenBuffer.h>
-#include <Omni/PPU/Test.h>
+#include <FXG/Omni/Loader/NESROMFile.h>
+#include <FXG/Omni/PPU/ScreenBuffer.h>
+#include <FXG/Omni/PPU/Test.h>
 
-namespace Omni { namespace Win {
+namespace FXG { namespace Omni { namespace Win {
 
 sptr<PPU::ScreenBuffer>  g_Buffer;
 sptr<Loader::NESROMFile> g_ROMFile;
@@ -35,19 +35,21 @@ void handleIdle()
     }
 }
 
-}}
+}}}
 
 int main(int i_Argc, char ** i_Argv)
 {
+    using namespace FXG::Omni;
+
     // TODO: move that in a config file or in cmd args
-    Omni::PPU::WinDim   const WIN_DIM    (256, 224);
-    Omni::PPU::WinCoord const WIN_POS    (200, 200);
+    PPU::WinDim   const WIN_DIM    (256, 224);
+    PPU::WinCoord const WIN_POS    (200, 200);
     std::string         const WIN_TITLE  ("Omnimulator");
     std::string         const LOG_CONFIG ("..\\Config\\easyloggingpp.config");
-    std::string         const TEST_ROM   ("..\\Resource\\Test\\SMB3.nes");
+    std::string         const TEST_ROM   ("..\\Resource\\Test\\Donkey_kong.nes");
 
     // Init logging library
-    Omni::Common::initLogging(LOG_CONFIG);
+    Common::initLogging(LOG_CONFIG);
     LOG(INFO) << "Starting Omnimulator";
 
     // Init freeglut library
@@ -58,14 +60,14 @@ int main(int i_Argc, char ** i_Argv)
     glutInitWindowPosition (WIN_POS.x, WIN_POS.y);
     glutInitDisplayMode    (GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow       (WIN_TITLE.c_str());
-    glutDisplayFunc        (Omni::Win::handleDisplay);
-    glutIdleFunc           (Omni::Win::handleIdle);
+    glutDisplayFunc        (Win::handleDisplay);
+    glutIdleFunc           (Win::handleIdle);
 
     // Create screen buffer
-    Omni::Win::g_Buffer = std::make_shared<Omni::PPU::ScreenBuffer>(WIN_DIM);
+    Win::g_Buffer = std::make_shared<PPU::ScreenBuffer>(WIN_DIM);
 
     // Open test .nes file
-    Omni::Win::g_ROMFile = std::make_shared<Omni::Loader::NESROMFile>(TEST_ROM);
+    Win::g_ROMFile = std::make_shared<Loader::NESROMFile>(TEST_ROM);
 
     // Start main loop
     glutMainLoop();

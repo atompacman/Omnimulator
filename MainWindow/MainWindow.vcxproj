@@ -43,11 +43,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -82,6 +82,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.vcxproj">
       <Project>{f184ec07-afb3-44cc-aec0-0725df9508ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CPU\CPU.vcxproj">
+      <Project>{cf850a57-7eeb-489b-8bd7-f54a09cd6f0f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\RomLoader\RomLoader.vcxproj">
       <Project>{d5774bae-5cb1-43b3-ab23-8cabeae6654d}</Project>

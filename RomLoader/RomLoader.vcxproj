@@ -16,10 +16,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\Loader\NESROMFile.h" />
+    <ClCompile Include="Source\NESROMFile.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\NESROMFile.cpp" />
+    <ClInclude Include="Include\FXG\Omni\Loader\NESROMFile.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D5774BAE-5CB1-43B3-AB23-8CABEAE6654D}</ProjectGuid>

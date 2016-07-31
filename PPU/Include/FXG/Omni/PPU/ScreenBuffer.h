@@ -1,5 +1,5 @@
-#ifndef OMNIMULATOR_PPU_SCREENBUFFER
-#define OMNIMULATOR_PPU_SCREENBUFFER
+#ifndef FXGUILD_OMNIMULATOR_PPU_SCREENBUFFER
+#define FXGUILD_OMNIMULATOR_PPU_SCREENBUFFER
 
 /*================================================================================================\\
 | Image data buffer that is drawn on the screen
@@ -9,12 +9,12 @@
 
 #include <vector>
 
-#include <aplib/Vector2D.h>
+#include <FXG/Common/Vector2D.h>
 
-namespace Omni { namespace PPU {
+namespace FXG { namespace Omni { namespace PPU {
 
-typedef Vector2D<uint16_t> WinDim;
-typedef Vector2D<uint16_t> WinCoord;
+typedef FXG::Common::Vector2D<uint16_t> WinDim;
+typedef FXG::Common::Vector2D<uint16_t> WinCoord;
 
 enum class ColorChannel
 {
@@ -53,6 +53,6 @@ inline void ScreenBuffer::setPixelValue(WinCoord i_Coord, ColorChannel i_Channel
     m_ImgData[3 * (i_Coord.x + (m_Dim.y - i_Coord.y - 1) * m_Dim.x) + channel] = i_Value;
 }
 
-}}
+}}}
 
-#endif // OMNIMULATOR_PPU_SCREENBUFFER
+#endif // FXGUILD_OMNIMULATOR_PPU_SCREENBUFFER

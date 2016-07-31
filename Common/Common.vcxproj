@@ -42,10 +42,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -68,13 +68,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\Common\Basic.h" />
-    <ClInclude Include="Include\Omni\Common\DataTypes.h" />
-    <ClInclude Include="Include\Omni\Common\Graphic.h" />
-    <ClInclude Include="Include\Omni\Common\Logging.h" />
+    <ClCompile Include="Source\Logging.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Logging.cpp" />
+    <ClInclude Include="Include\FXG\Omni\Common\Basic.h" />
+    <ClInclude Include="Include\FXG\Omni\Common\DataTypes.h" />
+    <ClInclude Include="Include\FXG\Omni\Common\Graphic.h" />
+    <ClInclude Include="Include\FXG\Omni\Common\JSONUtils.h" />
+    <ClInclude Include="Include\FXG\Omni\Common\Logging.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

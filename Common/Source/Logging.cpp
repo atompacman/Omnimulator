@@ -1,9 +1,9 @@
-#include <Omni/Common/Logging.h>
+#include <FXG/Omni/Common/Logging.h>
 
 // Macro to init easylogging++ library
 INITIALIZE_EASYLOGGINGPP
 
-namespace Omni { namespace Common {
+namespace FXG { namespace Omni { namespace Common {
 
 void initLogging(std::string const & i_LoggerConfigFilePath)
 {
@@ -16,4 +16,4 @@ void initLogging(std::string const & i_LoggerConfigFilePath)
     el::Loggers::reconfigureAllLoggers(conf);
 }
 
-}}
+}}}

@@ -11,10 +11,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\PPU\ScreenBuffer.h">
+    <ClInclude Include="Include\FXG\Omni\PPU\ScreenBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Omni\PPU\Test.h">
+    <ClInclude Include="Include\FXG\Omni\PPU\Test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

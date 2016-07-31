@@ -42,10 +42,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -68,13 +68,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Omni\PPU\ScreenBuffer.h" />
-    <ClInclude Include="Include\Omni\PPU\Test.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Common\Common.vcxproj">
       <Project>{f184ec07-afb3-44cc-aec0-0725df9508ba}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\FXG\Omni\PPU\ScreenBuffer.h" />
+    <ClInclude Include="Include\FXG\Omni\PPU\Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
