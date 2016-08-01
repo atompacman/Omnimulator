@@ -76,7 +76,9 @@
     <ClCompile Include="Source\MemoryMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\FXG\Omni\CPU\Memory.h" />
     <ClInclude Include="Include\FXG\Omni\CPU\MemoryMap.h" />
+    <ClInclude Include="Include\FXG\Omni\CPU\Registers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
