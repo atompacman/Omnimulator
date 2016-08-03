@@ -43,11 +43,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\aplib\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\ThirdParty\rapidjson\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
