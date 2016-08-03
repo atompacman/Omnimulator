@@ -42,10 +42,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\rapidjson\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

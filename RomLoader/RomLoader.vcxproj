@@ -53,10 +53,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

@@ -43,12 +43,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\..\Common\Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\ThirdParty\easylogging++\Include;$(ProjectDir)..\ThirdParty\freeglut\Include;$(ProjectDir)..\..\Common\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(ProjectDir)..\PPU\Include;$(ProjectDir)..\RomLoader\Include;$(ProjectDir)..\..\Common\Include;$(ProjectDir)..\..\ThirdParty\easylogging++\Include;$(ProjectDir)..\..\ThirdParty\freeglut\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\..\ThirdParty\freeglut\lib64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -57,7 +57,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
+      <Command>copy "$(ProjectDir)..\..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -73,7 +73,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
+      <Command>copy "$(ProjectDir)..\..\ThirdParty\freeglut\bin64\freeglut.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
