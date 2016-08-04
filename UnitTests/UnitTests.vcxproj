@@ -42,10 +42,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)..\CPU\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)..\CPU\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\Common\Include;$(ProjectDir)..\CPU\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -80,8 +80,12 @@
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\TestMemoryMap.cpp" />
+    <ClCompile Include="Source\TestOperations.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{f184ec07-afb3-44cc-aec0-0725df9508ba}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\CPU\CPU.vcxproj">
       <Project>{cf850a57-7eeb-489b-8bd7-f54a09cd6f0f}</Project>
     </ProjectReference>

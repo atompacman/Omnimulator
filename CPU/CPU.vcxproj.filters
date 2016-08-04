@@ -25,5 +25,11 @@
     <ClInclude Include="Include\FXG\Omni\CPU\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\FXG\Omni\CPU\Addresser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\FXG\Omni\CPU\Operation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
